@@ -1,0 +1,31 @@
+#We are importing a module that we need to be able to generate random numbers
+import random
+
+#We are creating a random number between 1 and 100
+#and assigning it to randomNumber
+randomNumber = random.randrange(1, 100)
+
+#We are creating the variable numberOfGuesses and
+#assigning it to 1 for the first guess.
+numberOfGuesses = 1
+
+#We are asking the user to enter in a value
+#between 1 and 100 and store it in guess
+guess = int(input("Guess a number between 1 to 100: "))
+
+#Here is the start to our loop that will keep
+#running as long as the guess is
+#not the same as the randomNumber
+while guess != randomNumber:
+    numberOfGuesses += 1 #We increment the numberOfGuesses by 1 each time the loop runs
+    if guess > randomNumber: #If the guess is larger than the random number
+        print(guess, "is too high.")
+        guess = int(input("Guess a lower number: "))
+    elif guess < randomNumber: #If the guess is lesser than the random number
+        print(guess, "is too low.")
+        guess = int(input("Guess a higher number: "))
+    else: #If the guess is the same (since we've checked both ranges already)
+        print("You got it! ")
+
+#Once the guess is equal to the randomNumber, we can output this line
+print("You guessed correctly", numberOfGuesses, "guesses!")
